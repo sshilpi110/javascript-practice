@@ -1,0 +1,97 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   //here it is showing owner object this and new keyword 
+
+   this is refer to the owner object person
+</body>
+</html>
+<script>
+    var person1={
+        name:"silpi",
+        age:"26",
+        myName:function(){
+       console.log(this.name) //this is refer to the owner object
+       console.log(this.age)
+        }
+    }
+    // person1.myName()
+
+
+    var aashram={    
+        //aashram is the owner of this object
+        name:"baba sarkar",
+        nature:"very lenient",
+        manavSeva:function(){
+            console.log(this.name)
+            console.log(this.nature)
+        }
+    }
+
+    // aashram.manavSeva()
+
+
+    var person={
+        name:"shilpi",
+        age:"25",
+        myName:function(){
+            console.log(this.name)
+            console.log(this.age)
+        }
+    }
+    // person.myName()
+
+    let person2={
+        name:"vikky kumar",
+        occupation:"enginner",
+
+        bigBro1:function(){
+            console.log(this.name)
+            console.log(this.occupation)
+        }
+    }
+
+    // person2.bigBro1()
+
+    // person.bigBro()
+
+    let sister1={
+        name:"arti kumari",
+        age:"29",
+        bigSis:function(){
+            console.log(this.name)
+            console.log(this.age)
+        }
+    }
+
+    // sister1.bigSis()
+
+
+    let sister2={
+        name:"neha",
+        age:"27",
+        bigSis:function(){
+            console.log(this.name)
+            console.log(this.age)
+        }
+    }
+//    sister2.bigSis()
+
+// <.........global object.....>
+
+    function rista(){
+        console.log(this)
+    }
+
+
+    rista()
+
+
+</script>

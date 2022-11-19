@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    // function player(n,t){
+    //     this.name=n
+    //     this.team=t
+    // }
+    // let obj=new player("shilpi","india")
+
+    // console.log("obj:",obj)
+
+//     function rista(n,t){
+//         this.name=n
+//         this.time=t
+
+//     }
+// let rista1=new rista("nayan","10 hour")
+// console.log(rista1)
+
+
+function team(n,t){
+
+    this.name=n
+    this.time=t
+
+}
+
+let team1=new team("sachine","10hr")
+console.log(team1)
+
+function vikram(n,a,h){
+  this.name=n
+  this.age=a
+  this.hobby=h
+}
+
+let vikram1=new vikram("vikram","21","cricket")
+console.log(vikram1)
+
+
+function vikky(n,a,h){
+    this.name=n
+    this.age=a
+    this.hobby=h
+}
+
+let vikky1=new vikky("vikash","29","seva karna logo ki")
+
+console.log(vikky1)
+
+function akka(n,a){
+    this.name=n
+    this.age=a
+}
+
+var  akki={
+    name:"neha",
+    age:"22"
+}
+
+var akku={
+    name:"nehu",
+    age:"22"
+}
+
+function myName(a){
+    console.log(this.name,a)
+}
+
+myName.call(akki,21)
+myName.call(akku,21)
+
+// myName.call(akki,21)
+
+
+
+
+
+</script>
