@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <title>call function in constructor funcion</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    var person={
+        name:"shilpi"
+    }
+
+    var person2={
+        name:"nayan"
+    }
+
+    var person3={
+        name:"sila"
+    }
+
+    function myName(a,c){
+        this.age=a,
+        this.cty=c
+    }
+
+    myName.call(person2,"21","delhi")
+    // console.log(person2)
+
+    myName.apply(person3,["22","pune"])
+    // console.log(person3)
+
+
+
+
+    var bhai1={
+        name:"vikky"
+    }
+
+     var bhai2={
+        name:"vikram"
+     }
+
+     var bhai3={
+        name:"aditya"
+     }
+
+     var sis={
+        name:"arti & shivani"
+     }
+
+     function broName(a,c,s){
+        this.age=a
+        this.city=c
+        this.sector=s
+     }
+     broName.call(bhai1,90,"pune","B")
+     console.log(bhai1)
+
+     broName.call(bhai2,90,"patna","C")
+     console.log(bhai2);
+
+     broName.apply(bhai2,[90,"patna","Cola"])
+     console.log(bhai2)
+
+    
+
+     var sis1={
+        name:"nami"
+     }
+   sis2={
+    name:"nadi"
+   }
+
+
+
+</script>
