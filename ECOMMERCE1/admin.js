@@ -1,5 +1,6 @@
 
 //we are using constructor function
+
 function addProduct(n,c,u,p,g,s){
     this.name=n
     this.category=c

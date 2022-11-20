@@ -1,5 +1,5 @@
-productData=JSON.parse(localStorage.getItem("product")) || []
 
+productData=JSON.parse(localStorage.getItem("product")) || []
 let count=document.getElementById("counter").innerText="Total no .ofProducts"+productData.length;
 productData.forEach((el,productIndex)=>{
     let card =document.createElement("div")
@@ -13,6 +13,15 @@ productData.forEach((el,productIndex)=>{
     let rmBtn=document.createElement("button")
     rmBtn.innerText="REMOVE"
     rmBtn.setAttribute("id","remove")
+
+    rmBtn.addEventListener("click",()=>{
+        productData.splice(productIndex,1)
+        localStorage.setItem("product",JSON.stringify(productData))
+        window.location.reload();
+    })
+
+
+
     let soldBtn=document.createElement("button")
     soldBtn.setAttribute("id","sold")
 
@@ -26,11 +35,7 @@ productData.forEach((el,productIndex)=>{
     }
     card.append(image,name,price,rmBtn,soldBtn)
 
-    rmBtn.addEventListener("click",()=>{
-        productData.splice(productIndex,1)
-        localStorage.setItem("products",JSON.stringify(productData))
-        window.location.reload();
-    })
+    
 
     soldBtn.addEventListener("click",()=>{
         if(el.sold){
@@ -41,7 +46,7 @@ productData.forEach((el,productIndex)=>{
             el.sold=true;
         }
 
-        localStorage.setItem("products",JSON.stringify(productData));
+        localStorage.setItem("product",JSON.stringify(productData));
         window.location.reload();
     })
 
