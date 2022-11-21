@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>prototype</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    let family = {
+        father: "vinay kumar yadav",
+        myFather() {
+            console.log(this.father)
+        }
+    }
+
+    var son = Object.create(family)
+    son.myFather();
+    console.log("son:",son)
+
+    function father(n,a){
+        this.name=n
+        this.age=a
+
+    }
+    var person1=new father("raj",33)
+    console.log("person1:",person1)
+
+    function person(n,a){
+        this.nme=n
+        this.age=a
+    }
+    person.prototype.city="pune"
+    var person1=new person("raj",33)
+    console.log(person1)
+</script>

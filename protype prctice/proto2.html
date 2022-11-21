@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    let cat={
+        type:"cat",
+        legs:"18",
+        tails:"3"
+    }
+
+    let tiger=Object.create(cat)
+    tiger.speed="70 km/h"
+
+    let lion=Object.create(cat)
+    lion.speed="80 km/h"
+
+    console.log("tiger:",tiger)
+    console.log("lion:",lion)
+
+
+    //fact:-Object.create() stores the parent properties in [[prototype]].and it is an object
+
+    /// inheritance using constructor function
+
+    function nikeProduct(n,p){
+        this.name=n
+        this.price=p
+    }
+
+    nikeProduct.prototype.brand="nike"
+    nikeProduct.prototype.sale=function(){
+        console.log("20% off")
+    }
+
+    let n1=new nikeProduct("jordans",9999)
+    console.log("n1:",n1)
+
+    let n2=new nikeProduct("dans",99)
+    // console.log("n2:",n2.sale);
+
+    n2.sale()
+
+
+   // one more rule of constructor function
+    
+   
+
+   let arr2= new Array(1,2,3)
+   console.log("arr2:",arr2)
+
+   Array.prototype.namaste=function(){
+    console.log("hello from web20")
+   }
+
+   arr2.namaste()
+
+   arr3=new Array(4,5,6)
+   console.log("arr3:",arr3)
+   Array.prototype.title=function(){
+    console.log(" nayan singh")
+   }
+
+   arr3.title()
+console.log("arr3:",arr3)
+    
+
+</script>
