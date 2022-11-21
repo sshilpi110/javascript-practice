@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- // synchronous programming executes one line at one time; -->
+</body>
+</html>
+<script>
+// console.log(1)
+// console.log(2)
+// console.log("hello world")
+
+
+//  Asynchronous programming will executes multiples  line at one time with the help of browser Api
+
+// setTimeOut():-setTimeOut sets a timer which executes a function  or specified piece of code once the timer expires.
+
+
+// function test(){
+//     console.log("I am here")
+// }
+
+// setTimeout(test,3000)
+// setTimeout(test,5000)
+// setTimeout(test,10000)
+
+
+// function papa(){
+//     console.log("i will definitely fullfill their dream")
+// }
+
+// setTimeout(papa,5000)
+
+// function bhai(){
+//     console.log("you are the best in the world")
+// }
+
+// setTimeout(bhai,2000)
+
+// function sister(){
+//     console.log("please tell me what you want")
+// }
+
+// setTimeout(sister,4000)
+
+
+// function baba(){
+//     console.log("you are  always my ideal my believe my courage")
+// }
+
+// setTimeout(baba,2000)
+
+//  here i am using setInterval......*****
+
+function player(){
+
+    console.log("i will winner")
+}
+
+  var id=setInterval(player,2000)
+  clearInterval(id)
+
+// ******-----clearInterval-----*******
+function test(){
+    document.body.append("hello i am here")
+}
+var id=setInterval(test,200)
+clearInterval(id)
+
+</script>
