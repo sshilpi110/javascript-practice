@@ -1,0 +1,34 @@
+
+body {
+    background-color: grey;
+}
+
+div{
+    background-color: aliceblue;
+    width: 40%;
+    margin: auto;
+    padding: 10%;
+    margin-top: 2%;
+    justify-content: center;
+    text-align: center;
+    padding-bottom: 5%;
+    line-height: 20px;
+}
+
+input {
+    width: 40%;
+    height: 50px;
+    text-align: center;
+    font-size: 25px;
+    background-color: white;
+    line-height: 25px;
+}
+
+button {
+    width: 41%;
+    height: 50px;
+    font-size: 25px;
+    line-height: 25px;
+    background-color: red;
+
+}

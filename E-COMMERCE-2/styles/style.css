@@ -1,0 +1,23 @@
+
+#nav{
+    border: 1px solid red;
+    width:"80%";
+    height: 75px;
+    background-color: blue;
+    color:azure;
+    margin-top: 40px;
+    padding-top: 40px;
+    text-decoration: none;
+}
+
+.all{
+    display: flex;
+    justify-content: space-around;
+    font-size: 30px;
+    /* text-decoration: none; */
+}
+
+.all a{
+    text-decoration: none;
+    color: azure;
+}

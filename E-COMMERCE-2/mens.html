@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mens page</title>
+    <link rel="stylesheet" href="./styles/mens.css">
+</head>
+
+<body>
+    <div id="nav">
+
+        <div class="all">
+            <div onclick="ree()">REEBOK</div>
+            <div onclick="men()"><a href="./men.html">Men</a></div>
+            <div onclick="women()"><a href="./women.html">Women</a></div>
+            <div onclick="login()"><a href="./login.html/">Login</a></div>
+            <div onclick="signUp()"><a href="./signup.html">SignUp</a></div>
+        </div>
+    </div>
+    <!-- <select>
+           <option value="s">sort-by-Price</option>
+           <option value="hl" onclick="sortLH()">High-to-low</option>
+           <option value="lh"  onclick="sortHL()">Low-to-high</option>
+     
+    </select> -->
+
+    <button onclick="sortLH()">Low-To-High</button>
+    <button onclick="sortHL()">High-To-Low</button>
+
+
+    <div id="display">
+        <!-- <................appending part.............> -->
+    </div>
+
+</body>
+
+</html>
+<script src="./scripts/mens.js"></script>
