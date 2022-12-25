@@ -227,16 +227,10 @@ productData = [
     },
 ]
 
-// let productArr=JSON.parse(localStorage.getItem("userProduct")) || [] ;
-// localStorage.setItem("data", JSON.stringify(productData))
-// var cartArray = JSON.parse(localStorage.getItem("cartDetails")) || [];
-
-
-
 function displayProduct(data) {
-    let screen = document.getElementById("screen");
-    screen.innerHtml = "";
-    data.forEach(function (el) {
+        let screen = document.getElementById("screen");
+        data.forEach(function (el) {
+        screen.innerHtml = "";
         let div = document.createElement("div");
 
         let img = document.createElement("img")
@@ -262,26 +256,42 @@ function displayProduct(data) {
         cart.innerText = "Add to Cart";
         cart.setAttribute("class", "Add")
         cart.addEventListener("click", function () {
-            alert("Added to cart")
-        })
+            if(addToCart(el.productID)===true){
 
+                alert("Added to cart")
+                cartLs.push(el);
+                localStorage.setItem("cart-page" ,JSON.stringify(cartLs))
+            }
+            else{
+                alert("product already in the cart");
+            }
+        })
 
         div.append(img, brand, name, price, catagory, cart);
         screen.append(div)
 
     })
 }
-displayProduct(productData)
+  displayProduct(productData)
 
 
+let cartLs=JSON.parse(localStorage.getItem("cart-page")) || [];
+function addToCart(id){
+    for(let i=0;i<cartLs.length;i++){
+        if(cartLs[i].productID==id){
+            return false;
+        }
+    }
+    return true;
+}
 
 let filter = document.getElementById("filter")
-filter.addEventListener("change", function () {
+filter.addEventListener("change", function(){
     if (filter.value === "All") {
         displayProduct(productData)
     }
-    else {
-        let filtered = productData.filter(function (el) {
+    else{
+        let filtered = productData.filter(function(el){
             return el.catagory === filter.value;
         })
         displayProduct(filtered);

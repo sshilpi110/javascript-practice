@@ -1,0 +1,13 @@
+
+
+#cartProduct{
+    display:grid;
+    grid-template-columns: repeat(3,1fr);
+    margin: auto;
+    gap: 5px;
+}
+
+#cartProduct img{
+    width: 80%;
+    height: 300px;
+}
