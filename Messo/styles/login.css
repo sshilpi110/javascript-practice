@@ -1,0 +1,33 @@
+
+div{
+    background-color: aqua;
+    width:50%;
+    height: 600px;
+    margin: auto;
+    margin-top: 50px;
+    
+}
+
+form{
+    width:40%;
+    font-size: 30px;
+    /* justify-content: center; */
+    /* align-items: center; */
+    margin: auto;
+   
+}
+input{
+    width:100%;
+    height: 50px;
+    margin-top: 40px;
+    font-size: 30px;
+    
+}
+h1{
+    text-align: center;
+}
+
+/* submit{
+    background-color: red;
+    color: azure;
+} */
