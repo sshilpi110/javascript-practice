@@ -1,5 +1,12 @@
 
 
+*{
+    margin: 0;
+    padding: 0;
+   box-sizing: border-box;
+font-family: sans-serif;
+}
+
 .navlink{
     display:flex;
     justify-content: space-around;
@@ -7,6 +14,7 @@
     width:80%;
     height: 40px;
     font-size: 35px;
+    line-height: 15px;
   
 
 }
@@ -31,4 +39,31 @@ body{
 a{
     text-decoration: none;
     color: white;
+}
+
+ #screen{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 10px;
+    margin: auto;
+    margin-top: 50px;
+}
+
+#screen img{
+    width:80%;
+    height: 350px;
+}
+
+.Add{
+    font-size: 30px;
+    background-color: red;
+    color: white;
+    border-radius: 10px;
+  
+}
+
+ #filter{
+    width:15%;
+    height: 60px;
+    font-size: 25px;
 }
