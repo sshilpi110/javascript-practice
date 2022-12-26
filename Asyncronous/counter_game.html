@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter Game</title>
+</head>
+
+<body>
+    <h1>Async Programming</h1>
+    <h2 id="timer"></h2>
+    <input type="text" id="text" placeholder="Enter text here">
+    <button onclick="refresh()">Refresh</button>
+</body>
+
+</html>
+<script>
+    h2 = document.getElementById("timer");
+    let count = 8;
+    function counter() {
+        let inp = document.getElementById("text").value;
+        count = count - 1;
+        h2.innerText = count;
+
+        if (inp === "21 din me paisa double ho jayeaga") {
+            h2.innerText = "winner";
+        }
+
+        if (count === 0) {
+            clearInterval(id);
+            h2.innerText = "looser"
+        }
+
+
+    }
+    function refresh() {
+        window.location.href = "counter_game.html";
+    }
+    let id = setInterval(counter, 1000);
+   
+</script>
