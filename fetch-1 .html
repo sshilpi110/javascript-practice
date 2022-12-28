@@ -30,6 +30,11 @@
     </style>
 </head>
 <body>
+    <h1>Online store</h1>
+    <button onclick="sortHL()">sort High To low</button>
+    <button onclick="sortLH()">sort Low To high</button>
+     Filter:<input type="text"  id="query"  oninput="filter()">
+     
     <div id="container"></div>
 </body>
 </html>
@@ -40,19 +45,21 @@
             let res= await fetch(`https://fakestoreapi.com/products`)
 
             data= await res.json()
-            console.log("data:",data)
+            // console.log("data:",data)
             appendProduct(data)
         }
         catch(err){
             console.log("err:",err)
         }
     }
+    //     des.innerText=el.description;
 
     getData()
 
     
     function appendProduct(data){
-       
+        let container=document.getElementById("container");
+        container.innerHTML=null
         data.forEach(function(el){
 
         let div= document.createElement("div");
@@ -61,7 +68,7 @@
         cat.innerText=el.category;
         
         // let des=document.createElement("p");
-        //     des.innerText=el.description;
+      
 
             let img=document.createElement("img")
             img.src=el.image;
@@ -73,9 +80,36 @@
             title.innerText=el.title;
 
             div.append(img,cat,price,title)
-            let container=document.getElementById("container");
             container.append(div);
             
         })
+    }
+    
+    
+    function sortHL(){
+        data= data.sort(function(a,b){
+            return b.price- a.price
+        })
+        // console.log(data)
+        appendProduct(data)
+    }
+
+
+    function sortLH(){
+         data=data.sort(function(a,b){
+            return a.price-b.price
+         })
+
+         appendProduct(data)
+    }
+
+    function filter(){
+        let query=document.getElementById("query").value;
+        let copy_data=data;
+
+        copy_data =copy_data.filter(function(el){
+            return el.title .toLowerCase().includes(query)
+        })
+        appendProduct(copy_data)
     }
 </script>
