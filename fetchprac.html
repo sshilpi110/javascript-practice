@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FetchPractice_1</title>
+</head>
+
+<body>
+    <h1>Online Store</h1>
+    <button onclick="sortHL()">sort High To Low</button>
+    <button onclick="sortLH()">sort Low To High</button>
+    Filter:<input type="text" id="query" oninput="filter()">
+    <div id="container"></div>
+    <style>
+        #container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin: auto;
+        }
+
+        #container img {
+            width: 50%;
+            height: 250px;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+        }
+    </style>
+</body>
+
+</html>
+<script>
+    let data;
+
+    async function getData() {
+        try {
+            let res = await fetch(`https://fakestoreapi.com/products`)
+            data = await res.json();
+            console.log(data)
+            appendProduct(data)
+        } catch (err) {
+            console.log("err:", err)
+        }
+    }
+
+    getData();
+
+
+    function appendProduct(data) {
+
+        let container = document.getElementById("container");
+        container.innerHTML = null;
+        data.forEach(function (el) {
+
+            let div = document.createElement("div");
+
+            let img = document.createElement("img");
+            img.src = el.image;
+
+            let cat = document.createElement("p");
+            cat.innerText = el.category;
+
+            let price = document.createElement("p");
+            price.innerText = el.price;
+
+            let title = document.createElement("p");
+            title.innerText = el.title;
+
+            div.append(img, cat, price, title);
+            container.append(div);
+
+        })
+
+    }
+
+     function sortHL() {
+        data = data.sort(function (a,b) {
+            return b.price - a.price;
+        })
+        appendProduct(data);
+    }
+
+
+    function sortLH() {
+        data = data.sort(function (a, b) {
+            return a.price - b.price;
+        })
+        appendProduct(data)
+    }
+
+    function filter() {
+
+        let query = document.getElementById("query").value;
+        let copy_data = data;
+
+        copy_data = copy_data.filter(function (el) {
+            return el.title.toLowerCase().includes(query);
+        });
+
+        appendProduct(copy_data)
+    };
+   
+</script>
