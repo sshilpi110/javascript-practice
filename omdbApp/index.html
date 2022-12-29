@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>omdbApp</title>
     <style>
-        #movies{
+        #movies {
             width: 400px;
             height: 500px;
             border: 1px solid red;
@@ -27,12 +27,12 @@
     async function main() {
         try {
             let query = document.getElementById("query").value;
-            console.log('query:',query);
+            console.log('query:', query);
 
             let res = await fetch(`http://www.omdbapi.com/?apikey=736e51ef&s=${query}`);
 
             let data = await res.json();
-            console.log("data:",data)
+            console.log("data:", data)
 
             let actual_data = data.Search
             console.log("actual_data:", actual_data);
@@ -66,13 +66,13 @@
         })
     }
 
-      let id;
-    function debounce(fun,delay){
-        if(id){
+    let id;
+    function debounce(fun, delay) {
+        if (id) {
             clearTimeout(id);
         }
-        id=setTimeout(function(){
+        id = setTimeout(function () {
             fun()
-        },delay)
+        }, delay)
     }
 </script>

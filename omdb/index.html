@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ES6(ECMA SCRIPT) youTube App</title>
+    <style>
+        #search {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-gap: 5%;
+            margin-top: 5%;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="text" id="query">
+    <button onclick="getData()">Search</button>
+    <div id="search">
+        <iframe width="560" height="315" title="YouTube video player" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+    </div>
+
+
+</body>
+
+</html>
+<script>
+    let API_KEY = `AIzaSyAnpyQwzckHxde-qMextgCkouTAZO4T5zY`;
+    let getData = async () => {
+        try {
+            let query = document.getElementById("query").value;
+            let res = await fetch(`https://youtube.googleapis.com/youtube/v3/search?q=${query}&key=${API_KEY}&part=snippet&maxResults=20`);
+            let { items } = await res.json();
+            let array_of_video = items;
+            appendVideo(array_of_video)
+            console.log(array_of_video)
+        } catch (err) {
+            console.log(err);
+        }
+    }
+    let search = document.getElementById("search");
+    let appendVideo = (data) => {
+        search.innerHtml = null;
+        data.forEach(({ snippet: { title }, id: { videoId } }) => {
+            let div = document.createElement("div");
+
+            let iframe = document.createElement("iframe")
+            iframe.src = `https://www.youtube.com/embed/${videoId}`;
+            iframe.width = "100%";
+            iframe.height = "100%";
+            iframe.allow = "fullscreen";
+
+            let Title = document.createElement("h5");
+            Title.innerText = title;
+
+            div.append(iframe, Title);
+            search.append(div)
+
+            console.log(title, videoId)
+        })
+
+
+    }
+
+
+</script>
