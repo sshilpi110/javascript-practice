@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>omdbApp</title>
+    <style>
+        #movies{
+            width: 400px;
+            height: 500px;
+            border: 1px solid red;
+            overflow: scroll;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="text" id="query" oninput="debounce (main,1000)">
+    <div id="movies"></div>
+</body>
+
+</html>
+<script>
+    let movies = document.getElementById("movies");
+    async function main() {
+        try {
+            let query = document.getElementById("query").value;
+            console.log('query:',query);
+
+            let res = await fetch(`http://www.omdbapi.com/?apikey=736e51ef&s=${query}`);
+
+            let data = await res.json();
+            console.log("data:",data)
+
+            let actual_data = data.Search
+            console.log("actual_data:", actual_data);
+
+            if (actual_data != undefined) {
+                appendMovies(actual_data);
+            }
+        }
+        catch (err) {
+            console.log(err);
+        }
+    }
+
+
+    function appendMovies(data) {
+        movies.innerHTML = null;
+        data.forEach(function (el) {
+            let poster = document.createElement("img");
+            poster.src = el.Poster;
+
+            let title = document.createElement("p");
+            title.innerText = el.Title;
+
+            let type = document.createElement("p");
+            type.innerText = el.Type;
+
+            let year = document.createElement("p");
+            year.innerText = el.Year;
+
+            movies.append(poster, title, type, year);
+        })
+    }
+
+      let id;
+    function debounce(fun,delay){
+        if(id){
+            clearTimeout(id);
+        }
+        id=setTimeout(function(){
+            fun()
+        },delay)
+    }
+</script>
