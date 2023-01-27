@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>changing innerText</title>
+</head>
+<body>
+    <h1 id="head">changing innerText</h1> 
+    <button onclick="likeMe()">Like</button>
+    <button onclick="dislikeMe()">disLike</button>
+    <button onclick="defaultText()">Reset</button>
+    <button onclick="completeMe()">Mark as completed</button>
+
+</body>
+</html>
+
+<script>
+    function likeMe(){
+        document.getElementById("head").innerText="someone clicked me"
+    }
+
+    function dislikeMe(){
+        document.getElementById("head").innerText="someone dislike me" 
+
+    }
+
+
+    function defaultText(){
+        document.getElementById("head").innerText="";
+
+    }
+
+    function completeMe(){
+        document.getElementById("head").innerText="Mark as pending"
+    }
+</script>

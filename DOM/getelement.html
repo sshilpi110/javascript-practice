@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>getElement by id</title>
+</head>
+<body>
+    <h1 id="head">I am heading</h1>
+    <p id="para">I ama para</p>
+    <div id="contianer">I am box</div>
+    <div id="container"><i>I am box</i></div>
+</body>
+</html>
+<script>
+   let x= document.getElementById("head").innerText ;
+   console.log(x);
+
+   let y= document.getElementById("para").innerText;
+   console.log(y);
+
+   let z= document.getElementById("container").innerText;
+   console.log(z)
+
+let m=document.getElementById("container").innerHTML;
+console.log(m)
+</script>
