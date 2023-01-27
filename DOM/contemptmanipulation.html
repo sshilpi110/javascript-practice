@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>contempt manipulation</title>
+</head>
+<body>
+    <h1 id="firstName">Hello</h1>
+    <div id="lastName">masai</div>
+    <p id="fullName">masai school</p>
+
+    <button onclick="setFirstName()">firstName</button>
+    <button onclick="setLastName()">lastName</button>
+    <button onclick="setFullName()">fullName/button>
+
+</body>
+</html>
+<script>
+
+    function setFirstName(){
+        document.getElementById("firstName").innerText ="Nayan"
+        document.getElementById("firstName").style.color ="red"
+
+
+    }
+
+    function setLastName(){
+        document.getElementById("lastName").innerText ="singh"
+        document.getElementById("lastName").style.color ="green"
+
+    }
+
+    function setFullName(){
+        document.getElementById("fullName").innerText="Nayan singh"
+        document.getElementById("fullName").style.color ="orange"
+
+    }
+</script>

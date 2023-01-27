@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>forms</title>
+</head>
+<body>
+    <input type="text" id="name" placeholder="Enter name here"><br>
+    <select id="gender">
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+        <option value="others">Others</option>
+
+    </select><br>
+    <input type="text" id="email" placeholder="Enter email here"><br>
+    <input type="number"  id="mbl" placeholder="Enter mobile here"><br>
+    <input type="password" id="pass" placeholder="Enter password here">
+    <h1 id="all">all result display here</h1>
+
+    <button  onclick="showName()">Name</button>
+    <button  onclick="showGender()">Gender</button>
+
+    <button  onclick="showEmail()">Email</button>
+    <button  onclick="showMobile()">Mobile</button>
+    <button  onclick="showPassword()">Password</button>
+
+</body>
+</html>
+<script>
+    function showName(){
+       let name= document.getElementById("name").value;
+    //    alert(name)
+       document.getElementById("all").innerText=name 
+       document.getElementById("all").style.color="red"
+       document.getElementById("all").style.backgroundColor="black"
+
+
+
+    }
+
+
+    function showGender(){
+       let gender= document.getElementById("gender").value;
+       alert(gender)
+    }
+
+    function showEmail(){
+       let email= document.getElementById("email").value;
+       alert(email)
+    }
+
+    function showMobile(){
+       let mob= document.getElementById("mbl").value;
+       alert(mob)
+    }
+
+
+    function showPassword(){
+       let pass= document.getElementById("pass").value;
+       alert(pass)
+    }
+</script>
