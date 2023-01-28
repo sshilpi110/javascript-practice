@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event function</title>
+</head>
+<body>
+    <button>click me</button>
+    <h1>I am heading</h1>
+</body>
+</html>
+<script>
+
+    // here we are using addEventListener 
+
+    document.querySelector("button").addEventListener("click" ,myFun)
+
+    function myFun(){
+        alert("someone click me!")
+    };
+
+    // // here we are using mouseover
+
+    // document.querySelector("h1").addEventListener("mouseover" ,changeColor)
+
+    document.querySelector("h1").addEventListener("mouseover" ,changeColor)
+
+    function changeColor(){
+        document.querySelector("h1").style.color = "red" ;
+    };
+</script>
