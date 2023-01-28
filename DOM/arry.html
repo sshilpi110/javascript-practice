@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array of object</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    var btnArr=[
+        {name:"shilpi",color:"white" ,bgColor:"blue"},
+        {name:"ship",color:"red" ,bgColor:"white"},
+        {name:"vikky",color:"grey" ,bgColor:"blue"},
+        {name:"dark",color:"white" ,bgColor:"blue"},
+        {name:"lidht",color:"red" ,bgColor:"black"},
+        {name:"nayan",color:"white" ,bgColor:"blue"},
+        {name:"chhoti",color:"white" ,bgColor:"blue"},
+        {name:"shivi",color:"white" ,bgColor:"blue"},
+        {name:"mom",color:"white" ,bgColor:"blue"},
+        {name:"papa",color:"white" ,bgColor:"blue"},
+        {name:"bhai",color:"white" ,bgColor:"blue"}
+
+    ]
+
+    for(var i=0;i<btnArr.length;i++){
+        let btn=document.createElement("button");
+        btn.innerText=btnArr[i].name ;
+        btn.style.backgroundColor=btnArr[i].bgColor
+        document.querySelector("body").append(btn)
+    }
+</script>
