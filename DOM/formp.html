@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form-1</title>
+</head>
+<body>
+    <form>
+  <input type="text"  id="name" placeholder="Enter name here">
+  <input type="text" id="email" placeholder="Enter email here">
+  <input type="submit">
+    </form>
+    <h1>display name here</h1>
+    <h2>display email here</h2>
+</body>
+</html>
+<script>
+   document.querySelector("form").addEventListener("click" , myFun)
+
+   function myFun(event){
+    event.preventDefault()
+    let name= document.querySelector("#name").value;
+    let email=document.querySelector("#email").value;
+
+    document.querySelector("h1").innerText=name;
+    
+   }
+</script>
