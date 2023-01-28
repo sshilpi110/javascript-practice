@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Button function</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    let name=["prim","succ","sec" ,"dan","war","info","light","dark","link"]
+    let colors=["blue","grey","green","red","yellow","cyan","white","black","white"]
+
+    for(let i=0;i<name.length;i++){
+        let btn= document.createElement("button");
+        btn.innerText=name[i];
+        btn.style.backgroundColor=colors[i]
+        document.querySelector("body").append(btn)
+    }
+
+    </script>
