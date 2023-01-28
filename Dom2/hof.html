@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>higher order function</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    let arr=[1,2,3,4,5]
+
+    arr.forEach(function(elem,index){
+        console.log(elem);
+    })
+
+
+    let str= ["a","s","r","d","f","g"]
+
+    str.forEach(function(elem,index){
+        console.log(elem)
+    })
+
+
+    let phones=[
+        {phone:"Iphone" ,price:"2M",state:"us"},
+        {phone:"redmi" ,price:"3M",state:"uk"},
+        {phone:"vivo" ,price:"4M",state:"up"},
+        {phone:"honor" ,price:"2M",state:"usA"}
+
+    ]
+
+    phones.forEach(function(elem,index){
+        console.log(elem.phone)
+        console.log(elem.state)
+        console.log(elem.price)
+    })
+</script>
