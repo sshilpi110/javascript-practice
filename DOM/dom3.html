@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom-3 pre</title>
+</head>
+<body>
+    <input type="text" id="name" placeholder="Enter name here">
+    <input type="number" id="mbl" placeholder="Enter mobile here">
+    <button>Submit</button>
+    <h1 id="displayName">Display name here</h1>
+    <h1 id="displayMob">Display Mobile here</h1>
+</body>
+</html>
+<script>
+    document.querySelector("button").addEventListener("click" ,myFun)
+
+    function myFun(){
+        let name=document.querySelector("#name").value;
+        let mobile=document.querySelector("#mbl").value;
+
+        document.querySelector("#displayName").innerText=name;
+        document.querySelector("#displayMob").innerText=mobile;
+    }
+</script>
