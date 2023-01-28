@@ -26,10 +26,10 @@
 
 
     let phones=[
-        {phone:"Iphone" ,price:"2M",state:"us"},
-        {phone:"redmi" ,price:"3M",state:"uk"},
-        {phone:"vivo" ,price:"4M",state:"up"},
-        {phone:"honor" ,price:"2M",state:"usA"}
+        {phone:"Iphone" ,price:"2M",state:"us",bgColor:"red"},
+        {phone:"redmi" ,price:"3M",state:"uk",bgColor:"white"},
+        {phone:"vivo" ,price:"4M",state:"up" ,bgColor:"orange"},
+        {phone:"honor" ,price:"2M",state:"usA" ,bgColor:"pink"}
 
     ]
 
@@ -37,5 +37,13 @@
         console.log(elem.phone)
         console.log(elem.state)
         console.log(elem.price)
+    })
+
+    phones.forEach(function(elem,index){
+        let btn =document.createElement("button");
+        btn.innerText=elem.phone;
+        btn.innerText=elem.state
+        btn.style.backgroundColor=elem.bgColor
+        document.querySelector("body").append(btn)
     })
 </script>
