@@ -13,7 +13,7 @@
 </body>
 </html>
 <script>
-    let counter=0;
+    let counter= localStorage.getItem("local") || 0;
     document.querySelector("h1").innerText= `count:${counter}`
     document.querySelector("h1+button").addEventListener("click" ,incFun)
     document.querySelector("button+button").addEventListener("click" ,decFun)
@@ -23,6 +23,7 @@
     function incFun(){
         counter++
         document.querySelector("h1").innerText=` count:${counter}`;
+        localStorage.setItem("local" ,counter);
     };
 
 
@@ -30,6 +31,7 @@
     function decFun(){
         counter--
         document.querySelector("h1").innerText=` count:${counter}`
+        localStorage.setItem("local",counter) ;
     };
 
 </script>
