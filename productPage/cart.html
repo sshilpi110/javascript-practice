@@ -1,12 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>cart page</title>
 </head>
+
 <body>
-    
+    <div id="navbar">
+        <a href="./mens.html"><button id="add">Added Item</button></a>
+
+    </div>
+
+    <div id="counter"></div>
+    <div id="container"></div>
 </body>
+
 </html>
+<script>
+    let Arr = JSON.parse(localStorage.getItem("addTOcart")) || []
+
+    let count = document.getElementById("counter").innerText = "total" + Arr.length;
+
+    Arr.forEach((el) => {
+
+       let div = document.createElement("div");
+        let image = document.createElement("img")
+        image.src = elem.image_url;
+
+        let name = document.createElement("p")
+        name.innerText = elem.name;
+
+        let price = document.createElement("p")
+        price.innerText = elem.price;
+
+        let strike = document.createElement("p")
+        strike.innerText = elem.strikedoffprice;
+        div.append(image,name,price,strike,rmnBtn)
+
+        let rmvBtn= document.createElement("button")
+        rmvBtn.innerText="REMOVE"
+        rmvBtn.setAttribute("id" ,"rmv")
+        rmvBtn.addEventListener("click" ,()=>{
+            Arr.splice(i,1)
+            localStorage.setItem("addTOcart" ,JSON.stringify(Arr))
+
+            window.location.reload()
+        })
+
+        document.getElementById("container").append(div)
+
+    })
+
+</script>
