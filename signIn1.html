@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>signIn</title>
+</head>
+<body>
+    <form >
+        <h1>SignIn</h1>
+        <input type="text" id="email" placeholder="enter email here">
+        <input type="password" id="password" placeholder="enter password here">
+        <input type="submit" value="SignIn">
+    </form>
+</body>
+</html>
+<script>
+    document.querySelector("form").addEventListener("submit" ,signIn)
+    let signUpArr = JSON.parse(localStorage.getItem("signUp")) || [];
+   
+    function signIn(){
+
+        event.preventDefault();
+        signInObj={
+            email:document.querySelector("#email").value ,
+            password:document.querySelector("#password").value 
+
+        }
+     if(checkSignIn(signInObj.email , signInObj.password)==true){
+        signUpArr.push(signInObj)
+        localStorage.setItem("signIn",JSON.stringify(signUpArr))
+        // console.log(signUpArr)
+        alert("signIn successfully !!")
+        window.location.href="signup1.html"
+     }else{
+        alert("wrong password")
+     }
+
+     function checkSignIn(email,password){
+        let filter =signUpArr.filter(function(elem){
+            return email===elem.email && password===elem.password
+        })
+        if(filter.length>0){
+            return true
+        }else{
+            return false;
+        }
+     }
+  
+    }
+</script>

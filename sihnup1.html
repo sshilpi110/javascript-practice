@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>signUp page</title>
+</head>
+
+<body>
+    <form>
+        <h1>signUp</h1>
+        <input type="text" id="name" placeholder="Enter name here">
+        <input type="text" id="email" placeholder="Enter email here">
+        <input type="text" id="password" placeholder="Enter password here">
+
+        <input type="submit" value="SignUp">
+    </form>
+</body>
+
+</html>
+<script>
+    document.querySelector("form").addEventListener("submit", mySignUp)
+    let signUpArr = JSON.parse(localStorage.getItem("signUp")) || [];
+    function mySignUp(event) {
+        event.preventDefault()
+        signUpObj = {
+            name: document.querySelector("#name").value,
+            email: document.querySelector("#email").value,
+            password: document.querySelector("#password").value
+
+        }
+        if (signUpCheckEmail(signUpObj.email) === true) {
+            signUpArr.push(signUpObj);
+            localStorage.setItem("signUp", JSON.stringify(signUpArr))
+            alert("signUp successfully")
+            // console.log(signUpArr)
+            window.location.href="signIn1.html"
+
+        } else {
+            alert("Account already exist")
+        }
+
+        function signUpCheckEmail(email) {
+
+            let filter = signUpArr.filter(function(elem){
+                return email === elem.email
+            })
+
+            if (filter.length>0) {
+                return false
+            } else {
+                return true;
+            }
+        }
+    } 
+</script>
