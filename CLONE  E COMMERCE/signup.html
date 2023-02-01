@@ -1,13 +1,13 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>signup page</title>
     <style>
-         #navbar{
+        #navbar {
             display: flex;
             text-align: center;
             justify-content: space-around;
@@ -19,27 +19,109 @@
             width: 90%;
             border-radius: 10px;
         }
-        a{
+
+        a {
             text-decoration: none;
             font-size: 25px;
             /* color: black; */
         }
-        h1{
+
+        h1 {
             text-align: center;
             color: red;
         }
+
+        form {
+            text-align: center;
+            margin: auto;
+            font-size: 23px;
+            color: black;
+            gap: 5%;
+
+            /* border: 1px solid red; */
+            height: 400px;
+            width: 35%;
+            margin-top: 50px;
+            box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+        }
+
+        input {
+            border-radius: 7px;
+            height: 30px;
+            width: 68%;
+            font-size: 18px;
+            text-align: center;
+            background-color: orange;
+
+        }
+
+        h3 {
+            margin-top: 20px;
+            color: rgb(15, 173, 10);
+        }
     </style>
 </head>
+
 <body>
     <h1>E-commerce clone</h1>
     <div id="navbar">
-     
-     <a href="./mens.html">Mens</a>
-     <a href="./womens.html">Women</a>
-     <a href="./cart.html">Cart</a>
-     <a href="./signup.html">SignUp</a>
-     <a href="./login.html">Login</a>
+
+
+        <a href="./mens.html">Mens</a>
+        <a href="./womens.html">Women</a>
+        <a href="./cart.html">Cart</a>
+        <a href="./signup.html">SignUp</a>
+        <a href="./login.html">Login</a>
 
     </div>
+
+
+    <form>
+        <h3>SgnUp page</h3>
+        <label>Name:</label><br>
+        <input type="text" id="name" placeholder="Enter name here"><br>
+        <label>Email:</label><br>
+        <input type="text" id="email" placeholder="Enter email here"><br>
+        <label>password:</label><br>
+        <input type="password" id="password" placeholder="Enter password here"><br>
+        <input type="submit" value="SignUp">
+
+    </form>
 </body>
+
 </html>
+<script>
+    document.querySelector("form").addEventListener("submit", mySignUp)
+    let signUpArr = JSON.parse(localStorage.getItem("signUp")) || []
+    function mySignUp() {
+        event.preventDefault();
+
+        let signUpObj = {
+            name: document.querySelector("#name").value,
+            email: document.querySelector("#email").value,
+            password: document.querySelector("#password").value
+
+        }
+        if (checkEmail(signUpObj.email === true)) {
+            signUpArr.push(signUpObj)
+            localStorage.setItem("signUp", JSON.stringify(signUpArr))
+            alert("signUp successfully")
+            window.location.href = "login.html"
+        } else {
+            alert("Account already exist")
+        }
+
+        function checkEmail() {
+            let filter = signUpArr.filter(function (el) {
+                return email = el.email
+            })
+
+            if (filter > 0) {
+                return false;
+            } else {
+                return true;
+            }
+        }
+
+    }
+</script>
