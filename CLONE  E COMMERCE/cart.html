@@ -15,15 +15,16 @@
 </html>
 <script>
     let cartArr = JSON.parse(localStorage.getItem("addCart")) || []
-     let count=document.getElementById("counter").innerText="total product" +cartArr.length;
+     let count=document.getElementById("counter").innerText="Total product=" +cartArr.length;
      cart(cartArr )
      function cart(cartArr ){
+        document.querySelector("#collect").innerText= ""
         cartArr.forEach((el)=>{
 
             let div = document.createElement("div")
 
             let url = document.createElement("img")
-            url.innerText = el.image_url;
+            url.src = el.image_url;
 
 
             let name = document.createElement("p")
@@ -38,10 +39,10 @@
 
              let rmvBtn= document.createElement("button")
              rmvBtn.innerText="REMOVE"
-             rmvBtn.setAttribute("id" ,"dlt")
-             rmvBtn.addEventListener("click" ,(i)=>{
+             rmvBtn.setAttribute("id","dlt")
+             rmvBtn.addEventListener("click",(i)=>{
                 cartArr.splice(i,1)
-                localStorage.setItem("local" ,JSON.stringify(cartArr))
+                localStorage.setItem("addCart",JSON.stringify(cartArr))
                 window.location.reload() ;
              })
              div.append(url,name,price,strike,rmvBtn)
