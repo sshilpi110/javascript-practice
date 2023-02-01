@@ -85,9 +85,9 @@
             let btn = document.createElement("button")
             btn.innerText = "Add To Cart"
 
-            btn.addEventListener("click",()=>{
+            btn.addEventListener("click",(el)=>{
 
-                Arr.push;
+                Arr.push(el);
                 localStorage.setItem("addTOcart", JSON.stringify(Arr));
                 alert("added to cart")
             })

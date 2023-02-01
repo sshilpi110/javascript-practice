@@ -23,35 +23,36 @@
     let Arr = JSON.parse(localStorage.getItem("addTOcart")) || []
 
     let count = document.getElementById("counter").innerText = "total" + Arr.length;
+    cart(Arr)
+    function cart(Arr) {
+        Arr.forEach((elem) => {
 
-    Arr.forEach((el) => {
+            let div = document.createElement("div");
+            let image = document.createElement("img")
+            image.src = elem.image_url;
 
-       let div = document.createElement("div");
-        let image = document.createElement("img")
-        image.src = elem.image_url;
+            let name = document.createElement("p")
+            name.innerText = elem.name;
 
-        let name = document.createElement("p")
-        name.innerText = elem.name;
+            let price = document.createElement("p")
+            price.innerText = elem.price;
 
-        let price = document.createElement("p")
-        price.innerText = elem.price;
+            let strike = document.createElement("p")
+            strike.innerText = elem.strikedoffprice;
+            
+            let rmvBtn = document.createElement("button")
+            rmvBtn.innerText = "REMOVE"
+            rmvBtn.setAttribute("id", "rmv")
+            rmvBtn.addEventListener("click", (i) => {
+                Arr.splice(i, 1)
+                localStorage.setItem("addTOcart", JSON.stringify(Arr))
+                
+                window.location.reload()
+            })
+            
+            div.append(image, name, price, strike, rmvBtn)
+            document.getElementById("container").append(div)
 
-        let strike = document.createElement("p")
-        strike.innerText = elem.strikedoffprice;
-        div.append(image,name,price,strike,rmnBtn)
-
-        let rmvBtn= document.createElement("button")
-        rmvBtn.innerText="REMOVE"
-        rmvBtn.setAttribute("id" ,"rmv")
-        rmvBtn.addEventListener("click" ,()=>{
-            Arr.splice(i,1)
-            localStorage.setItem("addTOcart" ,JSON.stringify(Arr))
-
-            window.location.reload()
         })
-
-        document.getElementById("container").append(div)
-
-    })
-
+    }
 </script>

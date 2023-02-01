@@ -1,14 +1,13 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <style>
-            #navbar{
+        #navbar {
             display: flex;
             text-align: center;
             justify-content: space-around;
@@ -20,31 +19,77 @@
             width: 90%;
             border-radius: 10px;
         }
-        a{
+
+        a {
             text-decoration: none;
             font-size: 25px;
             /* color: black; */
         }
-        h1{
+
+        h1 {
             text-align: center;
             color: red;
         }
     </style>
 </head>
+
 <body>
     <h1>E-commerce clone</h1>
     <div id="navbar">
-     
-     <a href="./mens.html">Mens</a>
-     <a href="./womens.html">Women</a>
-     <a href="./cart.html">Cart</a>
-     <a href="./signup.html">SignUp</a>
-     <a href="./login.html">Login</a>
+
+        <a href="./mens.html">Mens</a>
+        <a href="./womens.html">Women</a>
+        <a href="./cart.html">Cart</a>
+        <a href="./signup.html">SignUp</a>
+        <a href="./login.html">Login</a>
 
     </div>
 
-    <form >
-        
+    <form>
+        <label>Email:</label><br>
+        <input type="text" id="email" placeholder=" Enter email here"><br>
+        <label>Password:</label><br>
+        <input type="password" id="password" placeholder="Enter password here ">
+
+        <input type="submit" value="Login">
     </form>
 </body>
+
 </html>
+<script>
+    document.querySelector("form").addEventListener("submit", myLogin)
+    let signUpArr = JSON.parse(localStorage.getItem("signUp")) || []
+
+    function myLogin() {
+
+        event.preventDefault()
+
+        signInObj = {
+            email: document.querySelector("#email").value,
+            password: document.querySelector("#password").value
+        }
+        if (checkSignIn(signInObj.email, signInObj.password) === true) {
+            signUpArr.push(signInObj)
+            localStorage.setItem("signIn", JSON.stringify(signUpArr))
+            alert("signIn successfully !!")
+            // console.log(signUpArr)
+            window.location.href = "./mens.html"
+        }
+        else {
+            alert("wrong credential")
+        }
+
+        function checkSignIn(email, password) {
+
+            let filter = signUpArr.filter(function (el) {
+                return email === el.email && password === el.password
+            })
+            if (filter.length > 0) {
+                return true
+            }
+            else {
+                return false;
+            }
+        }
+    }
+</script>

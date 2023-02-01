@@ -1,2 +1,52 @@
 
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cart page</title>
+</head>
+<body>
+    <div id="counter"></div>
+    <div id="collect"></div>
+</body>
+</html>
+<script>
+    let cartArr = JSON.parse(localStorage.getItem("addCart")) || []
+     let count=document.getElementById("counter").innerText="total product" +cartArr.length;
+     cart(cartArr )
+     function cart(cartArr ){
+        cartArr.forEach((el)=>{
+
+            let div = document.createElement("div")
+
+            let url = document.createElement("img")
+            url.innerText = el.image_url;
+
+
+            let name = document.createElement("p")
+            name.innerText = el.name;
+
+            let price = document.createElement("p")
+            price.innerText = el.price;
+
+            let strike = document.createElement("p")
+            strike.innerText = el.strikedoffprice;
+        
+
+             let rmvBtn= document.createElement("button")
+             rmvBtn.innerText="REMOVE"
+             rmvBtn.setAttribute("id" ,"dlt")
+             rmvBtn.addEventListener("click" ,(i)=>{
+                cartArr.splice(i,1)
+                localStorage.setItem("local" ,JSON.stringify(cartArr))
+                window.location.reload() ;
+             })
+             div.append(url,name,price,strike,rmvBtn)
+             document.querySelector("#collect").append(div)
+        })
+
+     }
+</script>
