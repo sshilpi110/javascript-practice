@@ -30,10 +30,11 @@
             text-align: center;
             color: red;
         }
-        #container{
+
+        #container {
             display: grid;
-            grid-template-columns: repeat(4,1fr);
-            grid-template-rows: repeat(4,1fr);
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(4, 1fr);
             margin: auto;
             margin-top: 40px;
         }
@@ -48,12 +49,34 @@
         <a href="./womens.html">Women</a>
         <a href="./cart.html">Cart</a>
         <a href="./signup.html">SignUp</a>
-        <a  class="logout" href="./login.html">Logout</a>
+        <a class="logout" href="./login.html">Logout</a>
 
     </div>
-    <div id="container">
 
-    </div>
+    <select id="sortPrice" onchange="sortPrice()">
+        <option value="sortByName">sortByName</option>
+        <option value="High To Low">High To Low</option>
+        <option value="Low To High">Low To High</option>
+    </select>
+
+    <select id="sortName" onChange="sortName()">
+        <option value="A-Z">A-Z</option>
+        <option value="Z-A">Z-A</option>
+    </select>
+
+    <select id="filterCat" onChange="filterCat()">
+        <option value="FilterBy">FilterBy</option>
+        <option value="shoe">Shoe</option>
+        <option value="slipper">Slipper</option>
+        <option value="t-shirt">t-shirt</option>
+        <option value="pant">Pants</option>
+        <option value="shirt">Shirts</option>
+        <option value="short">Shorts</option>
+        <option value="hoodie">Hoodie</option>
+        <option value="bag">Bag</option>
+    </select>
+    <div id="container"> </div>
+
 </body>
 
 </html>
@@ -182,26 +205,28 @@
             image_url:
                 "https://content.shop4reebok.com/static/Product-HF3794/reebok_HF3794_01.JPG.plp ",
             name: "MEN'S REEBOK TRAINING ACTIVE MOVE TEE ",
-             price: 1749,
-             strikedoffprice: 2499,
-         },
-      {
+            price: 1749,
+            strikedoffprice: 2499,
+        },
+        {
             image_url:
                 "https://content.shop4reebok.com/static/Product-HG5456/reebok_HG5456_1.jpg.plp",
             strikedoffprice: 1799,
-         },
+        },
     ];
 
-    let cartArr = JSON.parse(localStorage.getItem("addCart")) || []
-    display(mensData) 
+    display(mensData)
+    let cartArr = JSON.parse(localStorage.getItem("addCart")) || [];
+    // console.log(cartArr);
+
+    // console.log(mensData)
     function display(mensData) {
-        document.querySelector("#container").innerHTML = "";
         mensData.forEach((el) => {
 
             let card = document.createElement("div")
 
             let url = document.createElement("img")
-            url.src = el.image_url;
+            // url.src = el.image_url;
 
 
             let name = document.createElement("p")
@@ -219,20 +244,80 @@
 
             AddBtn.addEventListener("click", (el) => {
                 cartArr.push(el)
-                localStorage.setItem("addCart",JSON.stringify(cartArr)) 
-                alert( "Added successfully")
+                localStorage.setItem("addCart", JSON.stringify(cartArr))
+                alert("Added successfully")
             })
-            card.append(url,name,price,strike,AddBtn)
+            card.append(name, price, strike, AddBtn)//bad me url appendkr lenge kyunki photo exp ho gyi h to bar bar load hone m prb ho rhi  h
+
             document.querySelector("#container").append(card)
+            // console.log(container)
         })
     }
 
 
-    let loginArr= JSON.parse(localStorage.getItem("signIn"));
-    document.querySelector(".logout").addEventListener("click" ,()=>{
+    let loginArr = JSON.parse(localStorage.getItem("signIn"));
+    document.querySelector(".logout").addEventListener("click", () => {
 
         localStorage.removeItem("loginArr")
         alert("logout successful")
-        location .replace("login.html")
-    })
+        location.replace("login.html")
+
+    });
+
+    function sortPrice() {
+        let SelectPrice = document.getElementById("sortPrice").value
+        if (SelectPrice == "Low To High") {
+            mensData.sort(function (a, b) {
+                if (a.price > b.price) return 1;
+                if (a.price < b.price) return -1;
+                return 0
+            })
+            display(mensData)
+        }
+
+        if (SelectPrice == "High To Low") {
+            mensData.sort(function (a, b) {
+                if (b.price > a.price) return 1;
+                if (b.price < a.price) return -1;
+                return 0
+            })
+            display(mensData)
+        }
+    }
+
+    function sortName() {
+        sctName = document.getElementById("sortName").value
+        if (sctName === "A-Z") {
+            mensData.sort(function (a, b) {
+                if (a.name > b.name) return 1;
+                if (a.name < b.name) return -1;
+                return 0;
+            })
+            display(mensData)
+        }
+
+
+        if (sctName === "Z-A") {
+            mensData.sort(function (a, b) {
+                if (b.name > a.name) return 1;
+                if (b.name < a.name) return -1;
+                return 0;
+            })
+            display(mensData)
+        }
+    }
+
+console.log(mensData)
+function filterCat(){
+    let filtered=document.getElementById("filterCat").value;
+    console.log(filtered)
+    let filterProd=mensData.filter(function(el){
+        return el.cat==filtered;
+        console.log(filterProd)
+    });
+    console.log(filterProd)
+    display(filterProd)
+}
+
+    
 </script>
