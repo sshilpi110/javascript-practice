@@ -10,7 +10,80 @@
     body {
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
+      background-color: aliceblue;
     }
+
+    .heading {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+
+    #team-members {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2%;
+      margin: auto;
+      background-color: white;
+      
+    }
+
+    #team-members div {
+      box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+      width: 260px;
+      /* border: 1px solid red; */
+    }
+
+    #team-members img {
+      width: 100%;
+      height: 270px;
+      margin: auto;
+      /* margin-top: 40px; */
+
+    }
+
+    #team-members h2 {
+      text-align: center;
+    }
+
+    #team-members p {
+      text-align: center;
+    }
+
+    #team-stats {
+      background-color: rgb(255, 202, 27);
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      text-align: center;
+      justify-content: center;
+      height: 200px;
+      margin-top: 40px;
+
+    }
+   .heading h1{
+    color: blue;
+   }
+   .heading p{
+    color:black;
+   }
+   
+   #cards{
+    display: flex;
+    gap: 5px;
+    margin: auto;
+    justify-content: center;
+    text-align: center;
+   }
+   #cards img{
+    width: 80%;
+    height: 300px;
+   }
+   
+   #cards p{
+    width: 80%;
+   }
   </style>
 </head>
 
@@ -22,11 +95,67 @@
   <!-- Top-section -->
   <div id="team-members">
     <!-- This section should contain 4 children divs, each div should have img,h2,p -->
+    <div>
+      <img
+        src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8YXZhdGFyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
+        alt="">
+      <h2>Abhishek ji</h2>
+      <p>managing Director(sales)</p>
+    </div>
+
+    <div>
+      <img
+        src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8YXZhdGFyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
+        alt="">
+      <h2>Ethel Devis</h2>
+      <p>managing Director(sales)</p>
+    </div>
+
+    <div>
+      <img
+        src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8YXZhdGFyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
+        alt="">
+      <h2>Ethel Devis</h2>
+      <p>managing Director(sales)</p>
+    </div>
+
+    <div>
+      <img
+        src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8YXZhdGFyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
+        alt="">
+      <h2>Ethel Devis</h2>
+      <p>managing Director(sales)</p>
+    </div>
   </div>
 
   <!-- Medium-section -->
   <div id="team-stats">
     <!-- This section should contain 5 children divs, each div should have h1,p -->
+
+    <div>
+      <h1>101</h1>
+      <p>Projects completed</p>
+    </div>
+
+    <div>
+      <h1>1032</h1>
+      <p>Really happy clients</p>
+    </div>
+
+    <div>
+      <h1>1026</h1>
+      <p>Cup of coffee Taken</p>
+    </div>
+
+    <div>
+      <h1>1212</h1>
+      <p>In house professionals</p>
+    </div>
+
+    <div>
+      <h1>1212</h1>
+      <p> Total task completed</p>
+    </div>
   </div>
 
   <div class="heading">
@@ -37,6 +166,31 @@
   <!-- bottom-section -->
   <div id="cards">
     <!-- This section should contain 3 children divs, each div should have img,h2,p -->
+    <div>
+      <img
+        src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fGF2YXRhcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
+        alt="">
+      <h2>Building drawing</h2>
+      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Delectus sequi tempore, adipisci nostrum hic optio!
+      </p>
+    </div>
+
+    <div>
+      <img
+        src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fGF2YXRhcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
+        alt="">
+      <h2>Building drawing</h2>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum, esse repudiandae nulla laudantium sit provident.
+      </p>
+    </div>
+
+    <div>
+      <img
+        src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fGF2YXRhcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
+        alt="">
+      <h2>Building drawing</h2>
+      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Pariatur rem ea modi quae tempore alias.</p>
+    </div>
   </div>
 </body>
 
